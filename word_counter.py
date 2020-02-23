@@ -4,5 +4,5 @@ def count_words(filename):
     word_counts = {}
     with open(filename, "r") as reader:
         for line in reader:
-            pass
+            words = line.split()
     return word_counts
