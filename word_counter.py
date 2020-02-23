@@ -6,5 +6,5 @@ def count_words(filename):
         for line in reader:
             words = line.split()
             for word in words:
-                pass
+                word_counts[word] = 1
     return word_counts
