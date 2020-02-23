@@ -3,5 +3,6 @@
 def count_words(filename):
     word_counts = {}
     with open(filename, "r") as reader:
-        pass
+        for line in reader:
+            pass
     return word_counts
