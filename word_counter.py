@@ -11,3 +11,6 @@ def count_words(filename):
                 else:
                     word_counts[word] = 1
     return word_counts
+
+def main():
+    word_counts = count_words("sample-text.txt")
