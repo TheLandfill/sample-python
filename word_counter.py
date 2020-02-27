@@ -34,6 +34,8 @@ def count_words(filename):
 
 def gen_plot(popt, counts):
     word_ranks = list(range(1, len(counts) + 1))
+    plt.xscale('log')
+    plt.yscale('log')
     plt.plot(word_ranks, [pareto(k, popt[0], popt[1]) for k in word_ranks])
     plt.plot(word_ranks, counts)
     plt.savefig("word-counts.png")
