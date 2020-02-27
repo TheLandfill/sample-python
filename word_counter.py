@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import re
 from scipy.optimize import curve_fit as fit
+import matplotlib.pyplot as plt
 
 def save_word_counts_to_file(word_counts, word_count_file):
     with open(word_count_file, "w") as writer:
@@ -31,12 +32,19 @@ def count_words(filename):
                     word_counts[word] = 1
     return word_counts
 
+def gen_plot(popt, counts):
+    word_ranks = list(range(1, len(counts) + 1))
+    plt.plot(word_ranks, [pareto(k, popt[0], popt[1]) for k in word_ranks])
+    plt.plot(word_ranks, counts)
+    plt.savefig("word-counts.png")
+
 def main():
     word_counts = count_words("sample-text.txt")
     sorted_word_counts = sorted(word_counts.items(), key = lambda x: -x[1])
     save_word_counts_to_file(sorted_word_counts, "word-counts.txt")
     counts = [k[1] for k in sorted_word_counts]
     popt = pareto_fit(counts)
+    gen_plot(popt, counts)
 
 if __name__ == "__main__":
     main()
