@@ -14,3 +14,4 @@ def count_words(filename):
 
 def main():
     word_counts = count_words("sample-text.txt")
+    sorted_word_counts = sorted(word_counts.items(), key = lambda x: -x[1])
