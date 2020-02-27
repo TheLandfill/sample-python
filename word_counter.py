@@ -21,3 +21,6 @@ def main():
     word_counts = count_words("sample-text.txt")
     sorted_word_counts = sorted(word_counts.items(), key = lambda x: -x[1])
     save_word_counts_to_file(sorted_word_counts, "word-counts.txt")
+
+if __name__ == "__main__":
+    main()
