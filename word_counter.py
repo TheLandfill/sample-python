@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-def save_word_counts_to_file(sorted_word_counts, word_count_file):
+def save_word_counts_to_file(word_counts, word_count_file):
     with open(word_count_file, "w") as writer:
         for word in word_counts:
             writer.write(word[0] + " " + str(word[1]) + "\n")
